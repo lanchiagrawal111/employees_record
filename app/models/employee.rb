@@ -3,10 +3,11 @@ class Employee < ApplicationRecord
     has_one :purse
     has_one :payment_history, through: :purse
     
-    validates :FirstName, :LastName, :Address, :City, :State, :PostalCode, :PhoneNumber, :salary,  presence: true
+    validates :FirstName, :LastName, :Address, :City, :State, :PostalCode, :salary,  presence: true
     validates :FirstName, :LastName, length: { minimum: 2 }
-    validates :salary, :PhoneNumber, :PostalCode, numericality: true
-    validates :PhoneNumber, uniqueness: true
+    validates :salary, :PostalCode, numericality: true
+    VALID_PHONE_REGEX = /\+?\d[\d -]{8,12}\d/
+    validates :PhoneNumber, presence: true, uniqueness: true, numericality: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  
     validates :email, presence: true, length: { maximum: 105 },            
                         uniqueness: { case_sensitive: false },            
