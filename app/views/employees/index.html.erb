@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<table  class="styled-table">
+  <thead>
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>PostalCode</th>
+      <th>PhoneNumber</th>
+      <th>Email</th>
+      <th>Dob</th>
+      <th>Salary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.FirstName %></td>
+        <td><%= employee.LastName %></td>
+        <td><%= employee.Address %></td>
+        <td><%= employee.City %></td>
+        <td><%= employee.State %></td>
+        <td><%= employee.PostalCode %></td>
+        <td><%= employee.PhoneNumber %></td>
+        <td><%= employee.Email %></td>
+        <td><%= employee.DOB %></td>
+        <td><%= employee.salary %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to  'New Employee', new_employee_path %>

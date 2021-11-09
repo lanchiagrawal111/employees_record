@@ -1,0 +1,72 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :FirstName %>
+    <%= form.text_field :FirstName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LastName %>
+    <%= form.text_field :LastName %>
+  </div>
+  <div class="field">
+    <%= form.label :EmpCode %>
+    <%= form.text_field :Emp_Code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Address %>
+    <%= form.text_field :Address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :City %>
+    <%= form.text_field :City %>
+  </div>
+
+  <div class="field">
+    <%= form.label :State %>
+    <%= form.text_field :State %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PostalCode %>
+    <%= form.text_field :PostalCode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PhoneNumber %>
+    <%= form.text_field :PhoneNumber %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.text_field :Email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :DOB %>
+    <%= form.date_select :DOB %>
+  </div>
+
+  <div class="field">
+    <%= form.label :salary %>
+    <%= form.text_field :salary %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+    <%end%>
